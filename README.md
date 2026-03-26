@@ -12,7 +12,9 @@ cd C:/path/to/PlaceRepo
 git clone https://github.com/LKINSEY/O-Mi.git
 cd C:/path/to/PlaceRepo/O-Mi
 pip install -r requirements.txt
+pip install s3fs
 ```
+- ignore error and just do pip install s3fs
 
 # Run function to acquire imaging data
 - imageURLs.txt is contained in repo with example URLs contained

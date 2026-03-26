@@ -9,8 +9,8 @@ In conda bash (change C:/temp to be dir of choice):
 conda create -n openMicroEnv python=3.9 conda-forge::zeroc-ice==3.6.5 omero-py
 conda activate openMicroEnv
 cd C:/path/to/PlaceRepo
-git clone repo
-cd C:/path/to/PlaceRepo/repo
+git clone https://github.com/LKINSEY/O-Mi.git
+cd C:/path/to/PlaceRepo/O-Mi
 pip install -r requirements.txt
 ```
 

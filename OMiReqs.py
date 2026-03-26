@@ -191,24 +191,24 @@ def readData(url, urlDir='C:/temp',crop=(500,500,500)):
         imID = (url[url.find('/cvlab/'):]).replace('/','_')
 
         # #avoid website's anti-scraping security using simulated chrome
-        # driver = webdriver.Chrome()
-        # driver.get(url)
-        # elem = driver.find_element(By.XPATH, '//a[contains(text(),"Download dataset")]')
-        # download_url = elem.get_attribute("href")
-        # print('Download URL:\n', download_url)
-        # driver.quit()
+        driver = webdriver.Chrome()
+        driver.get(url)
+        elem = driver.find_element(By.XPATH, '//a[contains(text(),"Download dataset")]')
+        download_url = elem.get_attribute("href")
+        print('Download URL:\n', download_url)
+        driver.quit()
 
-        # #data download
-        # with requests.get(download_url, stream=True) as r:
-        #     r.raise_for_status()
-        #     total = int(r.headers.get('content-length', 0))
-        #     with open(urlDir+f'data/{imID}/{imID}_data.zip', 'wb') as f, tqdm(
-        #         total = total, unit='B', unit_scale=True, desc=download_url.split('/')[-1]
-        #     ) as pbar:
-        #         for chunk in r.iter_content(chunk_size=8192):
-        #             if chunk:
-        #                 f.write(chunk)
-        #                 pbar.update(len(chunk))
+        #data download
+        with requests.get(download_url, stream=True) as r:
+            r.raise_for_status()
+            total = int(r.headers.get('content-length', 0))
+            with open(urlDir+f'data/{imID}/{imID}_data.zip', 'wb') as f, tqdm(
+                total = total, unit='B', unit_scale=True, desc=download_url.split('/')[-1]
+            ) as pbar:
+                for chunk in r.iter_content(chunk_size=8192):
+                    if chunk:
+                        f.write(chunk)
+                        pbar.update(len(chunk))
         
 
         meta={

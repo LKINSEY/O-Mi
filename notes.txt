@@ -1,0 +1,31 @@
+## Notes on USE OF LLMs
+
+- ChatGPT was used to summarize documentation for omero-py 
+
+- asked ChatGPT for best way to pull from neuroglancer
+   
+   conclusion: recommends cloudVolume for downloading data because neuroglancer stores data
+   in many precomputed chunks at multiple resolutions, cloudVolume package reads the info file, finds correct resolution,
+   calculates the chunk locations, dowloads only necessary chunks, decompresses data, and returns data
+   as a numpy array, all in one go. Apparently used by a many many people to view neuroglancer data.
+
+   pip install cloud-volume
+   if greenlet error pops up for this:
+       pip install --only-binary :all: greenlet if 
+   then try again
+
+   for public data it is better to use https:// method instead of the gs:// method
+   due to access credential errors
+
+- VS code copilot helps fill in code I am about to write in vscode
+
+- chatGPT helping summarize API calls for ebi datasets
+
+   conclusion: EBI calls with REST only access metadata, further requires FTP calls to grab data.
+
+- used copilot to summarize documentation for selenium
+
+- used chatGPT to help summarize use of dask zarr and s3fs use cases
+
+- copilot helped write implementation of loading bar for direct download in epfl use case
+

@@ -12,7 +12,8 @@ cd C:/path/to/PlaceRepo
 git clone https://github.com/LKINSEY/O-Mi.git
 cd C:/path/to/PlaceRepo/O-Mi
 pip install -r requirements.txt
-pip install s3fs
+pip install --only-binary :all: greenlet
+pip install s3fs, zarr, cloud-volume, hyperspy, selenium
 ```
 - ignore error and just do pip install s3fs
 
